@@ -32,7 +32,7 @@ import com.android.internal.app.IAppOpsService;
 import mx.xperience.genesis.PacifierInfo;
 import mx.xperience.genesis.PacifierUtils;
 import mx.xperience.genesis.utils.PmCache;
-import org.cyanogenmod.internal.utils.PackageManagerUtils;
+import cyanogenmod.internal.utils.PackageManagerUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -83,7 +83,7 @@ public class PacifierApps {
             try {
                 Map<String, PacifierInfo.PackageInfo> mPackageInfo = mAppOps.getPacifierInfo(user.getIdentifier());
                 for (PackageInfo app : apps) {
-                    if (mPackageInfo.get(app.packageName) != null && !PackageUtils.isSystem(app.applicationInfo)) {
+                    if (mPackageInfo.get(app.packageName) != null && !PackageManagerUtils.isSystem(app.applicationInfo)) {
                         String label = app.applicationInfo.loadLabel(mPm).toString();
                         int mode = mPackageInfo.get(app.packageName).getUidsInfo().get(user.getIdentifier()).getMode();
                         PacifierApp pacifierApp = new PacifierApp(app.packageName, label,

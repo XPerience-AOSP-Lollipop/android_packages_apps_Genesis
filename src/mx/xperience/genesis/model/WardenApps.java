@@ -35,7 +35,7 @@ import mx.xperience.genesis.WardenInfo;
 import mx.xperience.genesis.WardenUtils;
 import mx.xperience.genesis.receiver.PackagesMonitor;
 import mx.xperience.genesis.utils.PmCache;
-import org.cyanogenmod.utils.PackageUtils;
+import cyanogenmod.internal.utils.PackageManagerUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -86,7 +86,7 @@ public class WardenApps {
             List<PackageInfo> apps = mCache != null ? mCache.getPackages(user.getIdentifier(), 0)
                     : mPm.getInstalledPackagesAsUser(0, user.getIdentifier());
             for (PackageInfo app : apps) {
-                if (!PackageUtils.isSystem(app.applicationInfo)) {
+                if (!PackageManagerUtils.isSystem(app.applicationInfo)) {
                     String label = app.applicationInfo.loadLabel(mPm).toString();
                     if (TextUtils.equals(label, app.packageName)) continue;
                     boolean isAllowed;

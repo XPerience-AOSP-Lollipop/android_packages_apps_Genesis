@@ -31,7 +31,7 @@ import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 
 import mx.xperience.genesis.utils.PmCache;
-import org.cyanogenmod.utils.PackageUtils;
+import cyanogenmod.internal.utils.PackageManagerUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -91,7 +91,7 @@ public class PermissionApps {
                 for (int index = 0; index < mRequestPermissionGroups.size(); index++) {
                     int key = mRequestPermissionGroups.keyAt(index);
                     boolean permissionExists = Arrays.asList(app.requestedPermissions).contains(mRequestPermissionGroups.get(key));
-                    if (permissionExists && !PackageUtils.isSystem(app.applicationInfo) || permissionExists && PackageUtils.isSystem(app.applicationInfo) && Arrays.asList(WHITE_LIST).contains(app.packageName)) {
+                    if (permissionExists && !PackageManagerUtils.isSystem(app.applicationInfo) || permissionExists && PackageManagerUtils.isSystem(app.applicationInfo) && Arrays.asList(WHITE_LIST).contains(app.packageName)) {
                         int mode = mAppOpsManager.checkOp(key, app.applicationInfo.uid, app.packageName);
                         requestPermissionStatus.put(key, AppOpsManager.MODE_ALLOWED == mode);
                     }
