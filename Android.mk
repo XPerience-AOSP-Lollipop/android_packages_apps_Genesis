@@ -14,6 +14,7 @@ LOCAL_STATIC_JAVA_LIBRARIES += \
     android-support-v7-appcompat \
     android-support-v13 \
     android-support-v14-preference \
+    org.cyanogenmod.platform.internal \
     org.cyanogenmod.platform.sdk
 
 LOCAL_RESOURCE_DIR := \
